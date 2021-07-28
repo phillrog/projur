@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/ProJur/.vs/ProJur/v16
+/src/ProJur.Cadastros.API/obj
+/src/ProJur.Cadastros.API/bin/Debug/netcoreapp3.1
+/src/ProJur.Cadastros.Domain/obj
+/src/ProJur.Cadastros.Domain/bin/Debug/netcoreapp3.1
+/src/ProJur.Cadastros.Infra/obj
+/src/ProJur.Cadastros.Infra/bin/Debug/netcoreapp3.1
+/src/ProJur.Core/obj
+/src/ProJur.Core/bin/Debug/netcoreapp3.1
