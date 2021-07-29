@@ -26,6 +26,11 @@ namespace ProJur.Cadastros.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddCors(options => options.AddPolicy("Total", builder =>
+            builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +45,7 @@ namespace ProJur.Cadastros.API
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseCors("Total");
 
             app.UseEndpoints(endpoints =>
             {
