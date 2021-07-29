@@ -16,5 +16,6 @@ namespace ProJur.Core.DomainObjects
         {
             return $"{GetType().Name} [Id={Id}]";
         }
+        
     }
 }
