@@ -161,7 +161,13 @@ namespace ProJur.Cadastros.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            return CustomResponse();
+            if (!await _usuarioService.UsuarioExisteAsync(id)) AdicionarErroProcessamento("Usuário inválido");
+
+            if (!OperacaoValida()) return CustomResponse();
+
+            var comando = new DeletarUsuarioCommand(id);
+
+            return CustomResponse(await _mediatorHandler.EnviarComando(comando));
         }
     }
 }

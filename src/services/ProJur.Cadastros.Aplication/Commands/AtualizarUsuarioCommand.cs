@@ -19,6 +19,7 @@ namespace ProJur.Cadastros.Aplication.Commands
 
         public AtualizarUsuarioCommand(Guid id, string nome, string sobreNome, string email, DateTime dataNascimento, int escolaridade)
         {
+            Id = id;
             Nome = nome;
             SobreNome = sobreNome;
             Email = email;

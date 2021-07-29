@@ -9,7 +9,8 @@ namespace ProJur.Cadastros.Aplication.Commands
 {
     public class UsuarioCommandHandler : CommandHandler,
         IRequestHandler<AdicionarUsuarioCommand, ValidationResult>,
-        IRequestHandler<AtualizarUsuarioCommand, ValidationResult>
+        IRequestHandler<AtualizarUsuarioCommand, ValidationResult>,
+        IRequestHandler<DeletarUsuarioCommand, ValidationResult>
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
@@ -40,6 +41,15 @@ namespace ProJur.Cadastros.Aplication.Commands
             var usuarioAtualizado = Usuario.UsuarioFactory.AtualizarUsuario(usuario.Id, message.Nome, message.SobreNome, message.Email, message.DataNascimento, (int)message.Escolaridade);
 
             await _usuarioRepository.AtualizarAsync(usuarioAtualizado);
+
+            return await PersistirDados(_usuarioRepository.UnitOfWork);
+        }
+
+        public async Task<ValidationResult> Handle(DeletarUsuarioCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            await _usuarioRepository.RemoverAsync(message.Id);
 
             return await PersistirDados(_usuarioRepository.UnitOfWork);
         }
