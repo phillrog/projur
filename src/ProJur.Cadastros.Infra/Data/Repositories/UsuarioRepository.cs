@@ -1,7 +1,7 @@
 ﻿using ProJur.Cadastros.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProJur.Cadastros.Infra.Data.Repositories
 {
@@ -9,6 +9,12 @@ namespace ProJur.Cadastros.Infra.Data.Repositories
     {
         public UsuarioRepository(UsuarioContext db) : base(db)
         {
+        }
+
+        public async Task<Usuario> ObterPorEmailAsync(string email)
+        {
+            var usuario = await BuscarAsync(d => d.Email == email);
+            return usuario.FirstOrDefault();
         }
     }
 }
