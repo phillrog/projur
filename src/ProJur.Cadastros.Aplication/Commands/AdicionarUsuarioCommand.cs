@@ -37,14 +37,17 @@ namespace ProJur.Cadastros.Aplication.Commands
         public AdicionarUsuarioCommandValidation()
         {
             RuleFor(c => c.Nome)
-                .NotEmpty().WithMessage("Nome é obrigatório");
+                .NotEmpty().WithMessage("Nome é obrigatório")
+                .MaximumLength(250);
 
             RuleFor(c => c.SobreNome)
-                .NotEmpty().WithMessage("Sobrenome é obrigatório");
+                .NotEmpty().WithMessage("Sobrenome é obrigatório")
+                .MaximumLength(250); 
 
             RuleFor(c => c.Email)
                 .NotEmpty().WithMessage("E-mail é obrigatório")
-                .EmailAddress().WithMessage("E-mail inválido");
+                .EmailAddress().WithMessage("E-mail inválido")
+                .MaximumLength(250); 
 
             RuleFor(c => c.DataNascimento)
                 .Must(DataValida).WithMessage("Data de nascimento deve ser válida")
