@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProJur.Cadastros.Domain.Service
+namespace ProJur.Cadastros.Domain.Services
 {
     public class UsuarioService : IUsuarioService
     {

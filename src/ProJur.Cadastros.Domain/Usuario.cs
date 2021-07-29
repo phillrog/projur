@@ -28,6 +28,23 @@ namespace ProJur.Cadastros.Domain
             DataNascimento = dataNascimento;
             Escolaridade = (Escolaridade)escolaridade;
         }
+
+        public static class UsuarioFactory
+        {
+            public static Usuario NovoUsuario(string nome, string sobreNome, string email, DateTime dataNascimento, int escolaridade)
+            {
+                var usuario = new Usuario
+                {
+                    Nome = nome,
+                    DataNascimento = dataNascimento,
+                    Email = email,
+                    Escolaridade = (Escolaridade)escolaridade,
+                    Sobrenome = sobreNome                    
+                };
+                
+                return usuario;
+            }
+        }
     }
 
     public enum Escolaridade

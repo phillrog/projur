@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using ProJur.Cadastros.Aplication.Commands;
+using ProJur.Cadastros.Aplication.Services;
 using ProJur.Cadastros.Aplication.ViewModels;
+using ProJur.Core.Communication;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +15,19 @@ namespace ProJur.Cadastros.API.Controllers
     [Route("api/[controller]")]
     public class UsuarioController : BaseController
     {
+        private readonly IUsuarioService _usuarioService;
+        private readonly IMapper _mapper;
+        private readonly IMediatorHandler _mediatorHandler;
+
+        public UsuarioController(IUsuarioService usuarioService,
+            IMapper mapper,
+            IMediatorHandler mediatorHandler)
+        {
+            _usuarioService = usuarioService;
+            _mapper = mapper;
+            _mediatorHandler = mediatorHandler;
+        }
+
         #region GET        
         /// <summary>
         /// Busca todos os usuários
@@ -79,8 +95,14 @@ namespace ProJur.Cadastros.API.Controllers
         #endregion
         [HttpPost]
         public async Task<IActionResult> Post(UsuarioViewModel usuarioViewModel)
-        {          
-            return CustomResponse();
+        {
+            if (await _usuarioService.UsuarioJaCadastradoAsync(usuarioViewModel.Email)) AdicionarErroProcessamento("Usuário já cadastrado");
+
+            if (!OperacaoValida()) return CustomResponse();
+
+            var comando = _mapper.Map<AdicionarUsuarioCommand>(usuarioViewModel);            
+
+            return CustomResponse(await _mediatorHandler.EnviarComando(comando));
         }
 
         #region PUT
@@ -107,7 +129,7 @@ namespace ProJur.Cadastros.API.Controllers
         /// </remarks> 
         #endregion
         [HttpPut]
-        public async Task<IActionResult> Put( UsuarioViewModel usuarioViewModel)
+        public async Task<IActionResult> Put(UsuarioViewModel usuarioViewModel)
         {
             return CustomResponse();
         }
@@ -134,6 +156,6 @@ namespace ProJur.Cadastros.API.Controllers
         public async Task<IActionResult> Delete(Guid id)
         {
             return CustomResponse();
-        }        
+        }
     }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using DomainServices = ProJur.Cadastros.Domain.Services;
 
 namespace ProJur.Cadastros.Aplication.Services
 {
@@ -12,11 +13,15 @@ namespace ProJur.Cadastros.Aplication.Services
     {
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IMapper _mapper;
+        private readonly DomainServices.IUsuarioService _usuarioServiceDomain;
 
-        public UsuarioService(IUsuarioRepository usuarioRepository, IMapper mapper )
+        public UsuarioService(IUsuarioRepository usuarioRepository,
+            IMapper mapper,
+            DomainServices.IUsuarioService usuarioServiceDomain)
         {
             _usuarioRepository = usuarioRepository;
             _mapper = mapper;
+            _usuarioServiceDomain = usuarioServiceDomain;
         }
 
         public async Task AdicionarAsync(Usuario usuario)
@@ -50,6 +55,11 @@ namespace ProJur.Cadastros.Aplication.Services
         public void Dispose()
         {
             _usuarioRepository?.Dispose();
+        }
+
+        public async Task<bool> UsuarioJaCadastradoAsync(string email)
+        {
+            return await _usuarioServiceDomain.UsuarioJaCadastroAsync(email);
         }
     }
 }

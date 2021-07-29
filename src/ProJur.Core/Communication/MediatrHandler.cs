@@ -1,10 +1,11 @@
-﻿using MediatR;
+﻿using FluentValidation.Results;
+using MediatR;
 using ProJur.Core.Messages;
 using System.Threading.Tasks;
 
 namespace ProJur.Core.Communication
 {
-    public class MediatrHandler : IMediatrHandler
+    public class MediatrHandler : IMediatorHandler
     {
         private readonly IMediator _mediator;
 
@@ -13,7 +14,7 @@ namespace ProJur.Core.Communication
             _mediator = mediator;
         }
 
-        public async Task<bool> EnviarComando<T>(T comando) where T : Command
+        public async Task<ValidationResult> EnviarComando<T>(T comando) where T : Command
         {
             return await _mediator.Send(comando);
         }

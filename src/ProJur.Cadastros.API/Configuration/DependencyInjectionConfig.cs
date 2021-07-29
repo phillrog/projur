@@ -1,12 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ProJur.Cadastros.Domain;
-using DomainService = ProJur.Cadastros.Domain.Service;
+using DomainService = ProJur.Cadastros.Domain.Services;
 using ProJur.Cadastros.Infra;
 using ProJur.Cadastros.Infra.Data.Repositories;
 using AppService = ProJur.Cadastros.Aplication.Services;
 using ProJur.Core.Communication;
 using MediatR;
 using ProJur.Cadastros.Aplication.Commands;
+using FluentValidation.Results;
 
 namespace ProJur.Cadastros.API.Configuration
 {
@@ -14,7 +15,7 @@ namespace ProJur.Cadastros.API.Configuration
     {
         public static void RegisterServices(this IServiceCollection services)
         {
-            services.AddScoped<IMediatrHandler, MediatrHandler>();
+            services.AddScoped<IMediatorHandler, MediatrHandler>();
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<UsuarioContext>();
@@ -22,7 +23,7 @@ namespace ProJur.Cadastros.API.Configuration
             services.AddScoped<DomainService.IUsuarioService, DomainService.UsuarioService>();
             services.AddScoped<AppService.IUsuarioService, AppService.UsuarioService>();
 
-            services.AddScoped<IRequestHandler<AdicionarUsuarioCommand, bool>, UsuarioCommandHandler>();
+            services.AddScoped<IRequestHandler<AdicionarUsuarioCommand, ValidationResult>, UsuarioCommandHandler>();
         }
     }
 }

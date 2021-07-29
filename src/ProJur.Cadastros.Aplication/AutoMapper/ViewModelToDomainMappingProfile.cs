@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ProJur.Cadastros.Aplication.Commands;
 using ProJur.Cadastros.Aplication.ViewModels;
 using ProJur.Cadastros.Domain;
 
@@ -10,7 +11,11 @@ namespace ProJur.Cadastros.Aplication.AutoMapper
         {
             CreateMap<UsuarioViewModel, Usuario>()
                 .ConstructUsing(u =>
-                    new Usuario(u.Nome, u.SobreNome, u.Email, u.DataNascimento, u.Escolaridade));            
+                    new Usuario(u.Nome, u.SobreNome, u.Email, u.DataNascimento, u.Escolaridade));
+
+            CreateMap<UsuarioViewModel, AdicionarUsuarioCommand>()
+                .ConstructUsing(u =>
+                    new AdicionarUsuarioCommand(u.Nome, u.SobreNome, u.Email, u.DataNascimento, u.Escolaridade));
         }
     }
 }
