@@ -8,7 +8,8 @@ using FluentValidation.Results;
 namespace ProJur.Cadastros.Aplication.Commands
 {
     public class UsuarioCommandHandler : CommandHandler,
-        IRequestHandler<AdicionarUsuarioCommand, ValidationResult>
+        IRequestHandler<AdicionarUsuarioCommand, ValidationResult>,
+        IRequestHandler<AtualizarUsuarioCommand, ValidationResult>
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
@@ -26,6 +27,19 @@ namespace ProJur.Cadastros.Aplication.Commands
                 .NovoUsuario(message.Nome, message.SobreNome, message.Email, message.DataNascimento, (int)message.Escolaridade);
 
             await _usuarioRepository.AdicionarAsync(novoUsuario);
+
+            return await PersistirDados(_usuarioRepository.UnitOfWork);
+        }
+
+        public async Task<ValidationResult> Handle(AtualizarUsuarioCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            var usuario = await _usuarioRepository.ObterPorIdAsync(message.Id);
+
+            var usuarioAtualizado = Usuario.UsuarioFactory.AtualizarUsuario(usuario.Id, message.Nome, message.SobreNome, message.Email, message.DataNascimento, (int)message.Escolaridade);
+
+            await _usuarioRepository.AtualizarAsync(usuarioAtualizado);
 
             return await PersistirDados(_usuarioRepository.UnitOfWork);
         }

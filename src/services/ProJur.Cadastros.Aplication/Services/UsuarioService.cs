@@ -61,5 +61,14 @@ namespace ProJur.Cadastros.Aplication.Services
         {
             return await _usuarioServiceDomain.UsuarioJaCadastroAsync(email);
         }
+
+        public async Task<bool> UsuarioExisteAsync(Guid id)
+        {
+            if (id == Guid.Empty) return false;
+
+            var usuario = await _usuarioRepository.ObterPorIdAsync(id);
+
+            return usuario != null && usuario.Id != Guid.Empty;
+        }
     }
 }

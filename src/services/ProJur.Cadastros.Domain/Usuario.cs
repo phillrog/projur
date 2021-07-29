@@ -44,6 +44,21 @@ namespace ProJur.Cadastros.Domain
                 
                 return usuario;
             }
+
+            public static Usuario AtualizarUsuario(Guid id, string nome, string sobreNome, string email, DateTime dataNascimento, int escolaridade)
+            {
+                var usuario = new Usuario
+                {
+                    Id = id,
+                    Nome = nome,
+                    DataNascimento = dataNascimento,
+                    Email = email,
+                    Escolaridade = (Escolaridade)escolaridade,
+                    Sobrenome = sobreNome
+                };
+
+                return usuario;
+            }
         }
     }
 

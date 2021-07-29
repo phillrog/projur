@@ -24,6 +24,7 @@ namespace ProJur.Cadastros.API.Configuration
             services.AddScoped<AppService.IUsuarioService, AppService.UsuarioService>();
 
             services.AddScoped<IRequestHandler<AdicionarUsuarioCommand, ValidationResult>, UsuarioCommandHandler>();
+            services.AddScoped<IRequestHandler<AtualizarUsuarioCommand, ValidationResult>, UsuarioCommandHandler>();
         }
     }
 }

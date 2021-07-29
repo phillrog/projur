@@ -130,8 +130,14 @@ namespace ProJur.Cadastros.API.Controllers
         #endregion
         [HttpPut]
         public async Task<IActionResult> Put(UsuarioViewModel usuarioViewModel)
-        {
-            return CustomResponse();
+        {            
+            if (!await _usuarioService.UsuarioExisteAsync(usuarioViewModel.Id)) AdicionarErroProcessamento("Usuário inválido");
+
+            if (!OperacaoValida()) return CustomResponse();
+
+            var comando = _mapper.Map<AtualizarUsuarioCommand>(usuarioViewModel);
+
+            return CustomResponse(await _mediatorHandler.EnviarComando(comando));
         }
 
         #region GET{Id}

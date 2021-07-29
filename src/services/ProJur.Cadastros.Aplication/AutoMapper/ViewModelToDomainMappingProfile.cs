@@ -16,6 +16,10 @@ namespace ProJur.Cadastros.Aplication.AutoMapper
             CreateMap<UsuarioViewModel, AdicionarUsuarioCommand>()
                 .ConstructUsing(u =>
                     new AdicionarUsuarioCommand(u.Nome, u.SobreNome, u.Email, u.DataNascimento, u.Escolaridade));
+
+            CreateMap<UsuarioViewModel, AtualizarUsuarioCommand>()
+                .ConstructUsing(u =>
+                    new AtualizarUsuarioCommand(u.Id, u.Nome, u.SobreNome, u.Email, u.DataNascimento, u.Escolaridade));
         }
     }
 }
