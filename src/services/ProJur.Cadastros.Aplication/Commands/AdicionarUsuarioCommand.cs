@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
+using ProJur.Cadastros.Domain;
 using ProJur.Core.Messages;
 using System;
 
@@ -11,7 +12,7 @@ namespace ProJur.Cadastros.Aplication.Commands
         public string SobreNome { get; private set; }
         public string Email { get; private set; }
         public DateTime DataNascimento { get; private set; }
-        public int Escolaridade { get; private set; }
+        public Escolaridade Escolaridade { get; private set; }
 
         public ValidationResult ValidationResult { get; protected set; }
 
@@ -21,7 +22,7 @@ namespace ProJur.Cadastros.Aplication.Commands
             SobreNome = sobreNome;
             Email = email;
             DataNascimento = dataNascimento;
-            Escolaridade = escolaridade;
+            Escolaridade = (Escolaridade)escolaridade;
         }
 
         public override bool EhValido()

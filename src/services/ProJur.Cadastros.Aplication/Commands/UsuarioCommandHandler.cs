@@ -23,7 +23,7 @@ namespace ProJur.Cadastros.Aplication.Commands
 
             var novoUsuario = Usuario
                 .UsuarioFactory
-                .NovoUsuario(message.Nome, message.SobreNome, message.Email, message.DataNascimento, message.Escolaridade);
+                .NovoUsuario(message.Nome, message.SobreNome, message.Email, message.DataNascimento, (int)message.Escolaridade);
 
             await _usuarioRepository.AdicionarAsync(novoUsuario);
 

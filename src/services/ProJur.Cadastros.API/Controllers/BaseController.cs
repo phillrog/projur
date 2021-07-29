@@ -14,7 +14,7 @@ namespace ProJur.Cadastros.API.Controllers
         {
             if (OperacaoValida())
             {
-                return Ok(result);
+                return Ok(result ?? "sucesso");
             }
 
             return BadRequest(new ValidationProblemDetails(new Dictionary<string, string[]>
