@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProJur.Cadastros.Domain\ProJur.Cadastros.Domain.csproj" />
+    <ProjectReference Include="..\ProJur.Cadastros.Aplication\ProJur.Cadastros.Aplication.csproj" />
   </ItemGroup>
 
 

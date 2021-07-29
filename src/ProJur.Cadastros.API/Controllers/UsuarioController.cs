@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProJur.Cadastros.Domain;
+using ProJur.Cadastros.Aplication.Commands;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,16 +24,13 @@ namespace ProJur.Cadastros.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Usuario usuario)
-        {
-            ValidarUsuario(usuario);
-            if (!OperacaoValida()) return CustomResponse();
-
+        public async Task<IActionResult> Post()
+        {          
             return CustomResponse();
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Guid id, Usuario value)
+        public async Task<IActionResult> Put(Guid id)
         {
             return CustomResponse();
         }
@@ -44,7 +41,7 @@ namespace ProJur.Cadastros.API.Controllers
             return CustomResponse();
         }
 
-        private bool ValidarUsuario(Usuario usuario)
+        private bool ValidarUsuario(AdicionarUsuarioCommand usuario)
         {
             if (usuario.EhValido()) return true;
 
