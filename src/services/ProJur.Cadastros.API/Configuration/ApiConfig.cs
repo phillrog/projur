@@ -13,7 +13,8 @@ namespace ProJur.Cadastros.API.Configuration
     {
         public static void AddApiConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<UsuarioContext>(options => options.UseSqlServer(configuration.GetConnectionString("Localhost")));
+            services.AddDbContext<UsuarioContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("Localhost"),  m => m.MigrationsAssembly("ProJur.Cadastros.Infra")));
 
             services.AddControllers();
 

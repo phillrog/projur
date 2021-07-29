@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ProJur.Cadastros.Aplication\ProJur.Cadastros.Aplication.csproj" />
-    <ProjectReference Include="..\..\src\ProJur.Cadastros.Domain\ProJur.Cadastros.Domain.csproj" />
+    <ProjectReference Include="..\..\src\services\ProJur.Cadastros.Aplication\ProJur.Cadastros.Aplication.csproj" />
+    <ProjectReference Include="..\..\src\services\ProJur.Cadastros.Domain\ProJur.Cadastros.Domain.csproj" />
   </ItemGroup>
 
 </Project>
