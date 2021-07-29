@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ProJur.Cadastros.Aplication.Commands;
+using ProJur.Cadastros.Aplication.Queries;
 using ProJur.Cadastros.Aplication.Services;
 using ProJur.Cadastros.Aplication.ViewModels;
 using ProJur.Core.Communication;
@@ -18,14 +19,17 @@ namespace ProJur.Cadastros.API.Controllers
         private readonly IUsuarioService _usuarioService;
         private readonly IMapper _mapper;
         private readonly IMediatorHandler _mediatorHandler;
+        private readonly IUsuarioQueries _usuarioQueries;
 
         public UsuarioController(IUsuarioService usuarioService,
             IMapper mapper,
-            IMediatorHandler mediatorHandler)
+            IMediatorHandler mediatorHandler,
+            IUsuarioQueries usuarioQueries )
         {
             _usuarioService = usuarioService;
             _mapper = mapper;
             _mediatorHandler = mediatorHandler;
+            _usuarioQueries = usuarioQueries;
         }
 
         #region GET        
@@ -45,7 +49,7 @@ namespace ProJur.Cadastros.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return CustomResponse();
+            return CustomResponse(await _usuarioQueries.ObterTodosAsync());
         }
 
         #region GET{Id}
@@ -69,7 +73,11 @@ namespace ProJur.Cadastros.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
-            return CustomResponse();
+            if (!await _usuarioService.UsuarioExisteAsync(id)) AdicionarErroProcessamento("Usuário inválido");
+            
+            if (!OperacaoValida()) return CustomResponse();
+
+            return CustomResponse(await _usuarioQueries.ObterPorIdAsync(id));
         }
 
         #region POST

@@ -34,18 +34,7 @@ namespace ProJur.Cadastros.Aplication.Services
         {
             await _usuarioRepository.AtualizarAsync(usuario);
             await _usuarioRepository.UnitOfWork.Commit();
-        }
-
-
-        public async Task<UsuarioViewModel> ObterPorIdAsync(Guid id)
-        {
-            return _mapper.Map<UsuarioViewModel>(await _usuarioRepository.ObterPorIdAsync(id));
-        }
-
-        public async Task<IEnumerable<UsuarioViewModel>> ObterTodosAsync()
-        {
-            return _mapper.Map<IEnumerable<UsuarioViewModel>>(await _usuarioRepository.ObterTodosAsync());
-        }
+        }        
 
         public async Task Remover(Usuario usuario)
         {

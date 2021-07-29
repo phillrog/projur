@@ -8,6 +8,7 @@ using ProJur.Core.Communication;
 using MediatR;
 using ProJur.Cadastros.Aplication.Commands;
 using FluentValidation.Results;
+using ProJur.Cadastros.Aplication.Queries;
 
 namespace ProJur.Cadastros.API.Configuration
 {
@@ -26,7 +27,8 @@ namespace ProJur.Cadastros.API.Configuration
             services.AddScoped<IRequestHandler<AdicionarUsuarioCommand, ValidationResult>, UsuarioCommandHandler>();
             services.AddScoped<IRequestHandler<AtualizarUsuarioCommand, ValidationResult>, UsuarioCommandHandler>();
             services.AddScoped<IRequestHandler<DeletarUsuarioCommand, ValidationResult>, UsuarioCommandHandler>();
-            
+
+            services.AddScoped<IUsuarioQueries, UsuarioQueries>();
         }
     }
 }

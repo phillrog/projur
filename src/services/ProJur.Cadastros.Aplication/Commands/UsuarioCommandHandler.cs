@@ -57,7 +57,6 @@ namespace ProJur.Cadastros.Aplication.Commands
         private bool ValidarComando(Command usuario)
         {
             if (usuario.EhValido()) return true;
-
             
             return false;
         }
