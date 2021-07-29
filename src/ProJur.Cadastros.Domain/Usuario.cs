@@ -20,13 +20,13 @@ namespace ProJur.Cadastros.Domain
 
         }
 
-        public Usuario(string nome, string sobreNome, string email, DateTime dataNascimento, Escolaridade escolaridade)
+        public Usuario(string nome, string sobreNome, string email, DateTime dataNascimento, int escolaridade)
         {
             Nome = nome;
             Sobrenome = sobreNome;
             Email = email;
             DataNascimento = dataNascimento;
-            Escolaridade = escolaridade;
+            Escolaridade = (Escolaridade)escolaridade;
         }
     }
 

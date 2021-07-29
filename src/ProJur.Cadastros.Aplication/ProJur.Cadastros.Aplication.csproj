@@ -8,4 +8,8 @@
     <ProjectReference Include="..\ProJur.Cadastros.Domain\ProJur.Cadastros.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="automapper" Version="10.1.1" />
+  </ItemGroup>
+
 </Project>
