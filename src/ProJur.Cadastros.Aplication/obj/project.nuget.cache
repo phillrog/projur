@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "SpkhmJPhsb545VKb/noLEMtCIO2gZmbTDixY0/5fBGkDBZUAyQFiOcIhucgBbM1UtmE5RnKGm141IUkVXQF3hw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\phillipe.souza\\source\\repos\\projur\\src\\ProJur.Cadastros.Aplication\\ProJur.Cadastros.Aplication.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\phillipe.souza\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\phillipe.souza\\.nuget\\packages\\fluentvalidation\\10.3.0\\fluentvalidation.10.3.0.nupkg.sha512",
+    "C:\\Users\\phillipe.souza\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\phillipe.souza\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\phillipe.souza\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

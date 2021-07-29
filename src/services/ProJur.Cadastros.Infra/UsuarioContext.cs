@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation.Results;
+using Microsoft.EntityFrameworkCore;
 using ProJur.Cadastros.Domain;
 using ProJur.Core.Data;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace ProJur.Cadastros.Infra
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<ValidationResult>();
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(UsuarioContext).Assembly);
 
             base.OnModelCreating(modelBuilder);

@@ -3,16 +3,16 @@
 ################################################################################
 
 /.vs
-/src/ProJur/.vs/ProJur/v16
-/src/ProJur.Cadastros.API/obj
-/src/ProJur.Cadastros.API/bin/Debug/netcoreapp3.1
-/src/ProJur.Cadastros.Domain/obj
-/src/ProJur.Cadastros.Domain/bin/Debug/netcoreapp3.1
-/src/ProJur.Cadastros.Infra/obj
-/src/ProJur.Cadastros.Infra/bin/Debug/netcoreapp3.1
-/src/ProJur.Core/obj
-/src/ProJur.Core/bin/Debug/netcoreapp3.1
-/src/ProJur.Cadastros.Aplication/bin/Debug/netcoreapp3.1
-/src/ProJur.Cadastros.Aplication/obj
+/src/services/ProJur/.vs/ProJur/v16
+/src/services/ProJur.Cadastros.API/obj
+/src/services/ProJur.Cadastros.API/bin/Debug/netcoreapp3.1
+/src/services/ProJur.Cadastros.Domain/obj
+/src/services/ProJur.Cadastros.Domain/bin/Debug/netcoreapp3.1
+/src/services/ProJur.Cadastros.Infra/obj
+/src/services/ProJur.Cadastros.Infra/bin/Debug/netcoreapp3.1
+/src/services/ProJur.Core/obj
+/src/services/ProJur.Core/bin/Debug/netcoreapp3.1
+/src/services/ProJur.Cadastros.Aplication/bin/Debug/netcoreapp3.1
+/src/services/ProJur.Cadastros.Aplication/obj
 /tests/ProJur.Cadastros.Domain.Test/obj
 /tests/ProJur.Cadastros.Domain.Test/bin/Debug/netcoreapp3.1
