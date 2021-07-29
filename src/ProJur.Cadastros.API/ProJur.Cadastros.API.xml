@@ -61,7 +61,7 @@
             <summary>
             Atualiza os dados de um usuário
             </summary>
-            <param  name="usuarioViewModel">Novos dados do usuário</param>
+            <param  name="usuarioViewModel">Dados do usuário</param>
             
             <returns>200</returns>
             <remarks>

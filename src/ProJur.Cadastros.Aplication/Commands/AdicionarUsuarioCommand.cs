@@ -1,10 +1,11 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
+using ProJur.Core.Messages;
 using System;
 
 namespace ProJur.Cadastros.Aplication.Commands
 {
-    public class AdicionarUsuarioCommand
+    public class AdicionarUsuarioCommand : Command
     {
         public string Nome { get; private set; }
         public string SobreNome { get; private set; }
@@ -23,7 +24,7 @@ namespace ProJur.Cadastros.Aplication.Commands
             Escolaridade = escolaridade;
         }
 
-        public bool EhValido()
+        public override bool EhValido()
         {
             var erros = new AdicionarUsuarioCommandValidation().Validate(this).Errors;
             ValidationResult = new ValidationResult(erros);

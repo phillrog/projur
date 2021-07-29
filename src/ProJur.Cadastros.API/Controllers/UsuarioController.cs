@@ -134,14 +134,6 @@ namespace ProJur.Cadastros.API.Controllers
         public async Task<IActionResult> Delete(Guid id)
         {
             return CustomResponse();
-        }
-
-        private bool ValidarUsuario(AdicionarUsuarioCommand usuario)
-        {
-            if (usuario.EhValido()) return true;
-
-            usuario.ValidationResult.Errors.ToList().ForEach(e => AdicionarErroProcessamento(e.ErrorMessage));
-            return false;
-        }
+        }        
     }
 }
