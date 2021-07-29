@@ -8,17 +8,22 @@ namespace ProJur.Cadastros.Domain
     public class Usuario : Entity
     {
         public string Nome { get; private set; }
-        public string SobreNome { get; private set; }
+        public string Sobrenome { get; private set; }
         public string Email { get; private set; }
         public DateTime DataNascimento { get; private set; }
         public Escolaridade Escolaridade { get; private set; }
 
         public ValidationResult ValidationResult { get; protected set; }
 
+        public Usuario()
+        {
+
+        }
+
         public Usuario(string nome, string sobreNome, string email, DateTime dataNascimento, Escolaridade escolaridade)
         {
             Nome = nome;
-            SobreNome = sobreNome;
+            Sobrenome = sobreNome;
             Email = email;
             DataNascimento = dataNascimento;
             Escolaridade = escolaridade;
