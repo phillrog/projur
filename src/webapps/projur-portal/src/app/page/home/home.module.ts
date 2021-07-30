@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UsuarioService } from './services/usuario.service';
 import { ListaComponent } from './components/lista/lista.component';
 import { MaterialModule } from 'src/app/material.module';
+import { HomeRoutingModule } from './home-routing.module';
 
 
 
@@ -10,7 +11,8 @@ import { MaterialModule } from 'src/app/material.module';
   declarations: [ListaComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    HomeRoutingModule
   ],
   exports: [
     ListaComponent
