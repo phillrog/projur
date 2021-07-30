@@ -1,1 +1,64 @@
-<p>editar-usuario works!</p>
+<div class="container-fluid">
+                    
+    <p>
+        <a class="btn btn-info" [routerLink]="['/home/listar']">Voltar</a>
+    </p>
+
+    <mat-card class="mb-4">
+        <mat-card-header>
+            <mat-card-title>Novo Usuário </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <hr />
+
+            <form>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nome" >
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="E-mail" >
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-sm-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Sobrenome" >
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <input matInput readonly [matDatepicker]="picker" placeholder="Data de nascimento" >
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <mat-label>Escolaridade</mat-label>
+                            <mat-select  >
+                                <mat-option [value]="grau" *ngFor="let grau of escolaridade">{{grau.descricao}}
+                            </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button mat-flat-button color="primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+        </mat-card-content>            
+    </mat-card>
+</div>

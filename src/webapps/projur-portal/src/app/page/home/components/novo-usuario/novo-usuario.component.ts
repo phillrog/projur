@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NovoUsuarioComponent implements OnInit {
 
+  escolaridade = [
+    { id: '0', descricao: 'Infantil'},
+    { id: '1', descricao: 'Fundamental'},
+    { id: '2', descricao: 'Medio'},
+    { id: '3', descricao: 'Superior'}
+  ];
   constructor() { }
 
   ngOnInit(): void {
