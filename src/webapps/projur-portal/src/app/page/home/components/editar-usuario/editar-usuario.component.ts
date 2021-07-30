@@ -73,7 +73,7 @@ export class EditarUsuarioComponent implements OnInit {
       escolaridade: Number(this.form.value.escolaridade.id)
     };
 
-    this.usuarioService.alterarProduto(usuario)
+    this.usuarioService.alterarUsuario(usuario)
         .subscribe(sucesso => {
            console.log(sucesso)
           },

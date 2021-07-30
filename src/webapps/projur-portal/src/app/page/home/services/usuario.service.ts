@@ -21,13 +21,13 @@ export class UsuarioService {
         .pipe(catchError(this.serviceError));
   }
 
-  novoProduto(usuario: Usuario): Observable<any> {
+  novoUsuario(usuario: Usuario): Observable<any> {
     return this.http
         .post(this.apiUrl + "Usuario", usuario)
         .pipe(map(this.resposta),catchError(this.serviceError));
   }  
 
-  alterarProduto(usuario: Usuario): Observable<any> {
+  alterarUsuario(usuario: Usuario): Observable<any> {
     return this.http
         .put(this.apiUrl + "Usuario", usuario)
         .pipe(map(this.resposta),catchError(this.serviceError));
@@ -38,6 +38,14 @@ export class UsuarioService {
         .get<Usuario>(this.apiUrl + "Usuario/" + id  )
         .pipe(catchError(this.serviceError));
   }
+
+  removerUsuario(id: string): Observable<Usuario> {
+    return this.http
+        .delete(this.apiUrl + "Usuario/" + id)
+        .pipe(
+            map(this.resposta),
+            catchError(this.serviceError));
+  }  
 
   resposta(response: any): any {
     return response || {};

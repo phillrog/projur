@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/usuario.service';
 import {MatPaginator} from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
@@ -20,7 +21,8 @@ export class ListaComponent implements OnInit {
   public usuarios: Usuario[] = [];
   errorMessage: string = '';
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService,
+    private router: Router,) { }
 
   ngOnInit(): void {
     this.usuarioService.obterTodos()
@@ -31,6 +33,17 @@ export class ListaComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
         },
         error => this.errorMessage);
+  }
+
+  removerUsuario(usuario: Usuario) {
+    this.usuarioService.removerUsuario(usuario.id).subscribe(
+      sucesso => {
+
+      },
+      falha => {}
+    )
+
+    window.location.reload();
   }
 
 }

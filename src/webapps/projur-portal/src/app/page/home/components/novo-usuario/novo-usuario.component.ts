@@ -50,10 +50,10 @@ export class NovoUsuarioComponent implements OnInit {
       sobreNome: this.form.value.sobrenome,
       email: this.form.value.email,
       dataNascimento: this.form.value.dataNascimento,
-      escolaridade: Number(this.form.value.escolaridade[0].id)
+      escolaridade: Number(this.form.value.escolaridade.id)
     };
 
-    this.usuarioService.novoProduto(usuario)
+    this.usuarioService.novoUsuario(usuario)
         .subscribe(sucesso => {
            console.log(sucesso)
           },

@@ -60,6 +60,7 @@
                 <mat-cell *matCellDef="let element">
                 
                     <button mat-button mat-mini-fab color="warn" title="Deletar"
+                    (click)="removerUsuario(element)"
                     > 
                     <mat-icon class="icon">delete</mat-icon></button>
                 
