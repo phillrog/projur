@@ -11,6 +11,7 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class EditarUsuarioComponent implements OnInit {
 
+  submitted = false;
   
   escolaridade = [
     { id: '0', descricao: 'Infantil'},
