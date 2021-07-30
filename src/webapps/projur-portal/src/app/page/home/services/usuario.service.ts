@@ -27,6 +27,18 @@ export class UsuarioService {
         .pipe(map(this.resposta),catchError(this.serviceError));
   }  
 
+  alterarProduto(usuario: Usuario): Observable<any> {
+    return this.http
+        .put(this.apiUrl + "Usuario", usuario)
+        .pipe(map(this.resposta),catchError(this.serviceError));
+  }  
+
+  obterPorId(id: string): Observable<Usuario> {
+    return this.http
+        .get<Usuario>(this.apiUrl + "Usuario/" + id  )
+        .pipe(catchError(this.serviceError));
+  }
+
   resposta(response: any): any {
     return response || {};
   }

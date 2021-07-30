@@ -11,16 +11,23 @@
         <mat-card-content>
             <hr />
 
-            <form>
+            <form [formGroup]="form" (ngSubmit)="submit()">
                 <div class="row">
                     <div class="col-sm-6">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Nome" >
+                            <input matInput placeholder="Id" formControlName="id" >
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nome" formControlName="nome">
                         </mat-form-field>
                     </div>
                     <div class="col-sm-6">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="E-mail" >
+                            <input matInput placeholder="E-mail" formControlName="email">
                         </mat-form-field>
                     </div>
                 </div>
@@ -28,12 +35,12 @@
                  <div class="row">
                     <div class="col-sm-6">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Sobrenome" >
+                            <input matInput placeholder="Sobrenome" formControlName="sobrenome">
                         </mat-form-field>
                     </div>
                     <div class="col-sm-6">
                         <mat-form-field>
-                            <input matInput readonly [matDatepicker]="picker" placeholder="Data de nascimento" >
+                            <input matInput readonly [matDatepicker]="picker" placeholder="Data de nascimento" formControlName="dataNascimento" >
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
@@ -44,7 +51,7 @@
                     <div class="col-sm-6">
                         <mat-form-field>
                             <mat-label>Escolaridade</mat-label>
-                            <mat-select  >
+                            <mat-select [compareWith]="compareItems"   formControlName="escolaridade"  >
                                 <mat-option [value]="grau" *ngFor="let grau of escolaridade">{{grau.descricao}}
                             </mat-option>
                             </mat-select>
@@ -54,7 +61,7 @@
 
                 <div class="row">
                     <div class="col-sm-12">
-                        <button mat-flat-button color="primary">Submit</button>
+                        <button mat-flat-button color="primary">Salvar</button>
                     </div>
                 </div>
             </form>

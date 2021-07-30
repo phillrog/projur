@@ -44,7 +44,7 @@
                     <div class="col-sm-6">
                         <mat-form-field>
                             <mat-label>Escolaridade</mat-label>
-                            <mat-select [compareWith]="compareItems"  formControlName="escolaridade" multiple >
+                            <mat-select [compareWith]="compareItems"  formControlName="escolaridade" >
                                 <mat-option [value]="grau" *ngFor="let grau of escolaridade">{{grau.descricao}}
                             </mat-option>
                             </mat-select>

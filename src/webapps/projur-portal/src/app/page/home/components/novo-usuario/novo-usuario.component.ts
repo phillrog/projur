@@ -60,6 +60,6 @@ export class NovoUsuarioComponent implements OnInit {
     falha => {
     });
 
-    this.router.navigate(["/home/listar"]);
+    this.router.navigate(["/"]);
   }
 }
