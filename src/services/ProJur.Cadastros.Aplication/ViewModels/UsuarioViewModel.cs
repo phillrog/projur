@@ -10,5 +10,6 @@ namespace ProJur.Cadastros.Aplication.ViewModels
         public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
         public int Escolaridade { get; set; }
+        public string EscolaridadeDesc { get; set; }
     }
 }

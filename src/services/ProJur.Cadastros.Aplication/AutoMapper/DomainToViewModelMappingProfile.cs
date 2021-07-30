@@ -11,7 +11,8 @@ namespace ProJur.Cadastros.Aplication.AutoMapper
     {
         public DomainToViewModelMappingProfile()
         {
-            CreateMap<Usuario, UsuarioViewModel>();
+            CreateMap<Usuario, UsuarioViewModel>().ForMember(v => v.EscolaridadeDesc, 
+                opt => opt.MapFrom(s =>  Enum.GetName(typeof(Escolaridade), s.Escolaridade)));
         }
     }
 }

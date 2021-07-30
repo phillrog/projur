@@ -11,7 +11,10 @@ import {MatPaginator} from '@angular/material/paginator';
 })
 export class ListaComponent implements OnInit {
 
-  displayedColumns: string[] = ['nome', 'sobreNome', 'email', 'dataNascimento', 'escolaridade', 'editar', 'deletar'];
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  displayedColumns: string[] = ['nome', 'sobreNome', 'email', 'dataNascimento', 'escolaridadeDesc', 'editar', 'deletar'];
   dataSource = new MatTableDataSource<Usuario>([]);
 
   public usuarios: Usuario[] = [];
@@ -25,6 +28,7 @@ export class ListaComponent implements OnInit {
         usuarios => {
           this.usuarios = usuarios
           this.dataSource = new MatTableDataSource<Usuario>(this.usuarios);
+          this.dataSource.paginator = this.paginator;
         },
         error => this.errorMessage);
   }

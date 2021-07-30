@@ -21,12 +21,12 @@
     <!-- Symbol Column -->
     <ng-container matColumnDef="dataNascimento">
       <mat-header-cell *matHeaderCellDef> Data Nascimento </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.dataNascimento}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.dataNascimento | date : 'dd/MM/yyyy'}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="escolaridade">
+    <ng-container matColumnDef="escolaridadeDesc">
       <mat-header-cell *matHeaderCellDef> Escolaridade </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.escolaridade}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.escolaridadeDesc}} </mat-cell>
     </ng-container>
 
      <ng-container matColumnDef="editar">
@@ -53,6 +53,5 @@
   </mat-table>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons 
-                 aria-label="Select page of periodic elements">
+                 showFirstLastButtons >
   </mat-paginator>

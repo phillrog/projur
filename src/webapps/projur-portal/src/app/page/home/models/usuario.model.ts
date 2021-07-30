@@ -5,4 +5,5 @@ export interface Usuario {
     email: string,    
     dataNascimento: string,
     escolaridade: number,
+    escolaridadeDesc: string
   }
