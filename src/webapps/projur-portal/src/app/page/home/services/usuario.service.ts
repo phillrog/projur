@@ -21,6 +21,16 @@ export class UsuarioService {
         .pipe(catchError(this.serviceError));
   }
 
+  novoProduto(usuario: Usuario): Observable<any> {
+    return this.http
+        .post(this.apiUrl + "Usuario", usuario)
+        .pipe(map(this.resposta),catchError(this.serviceError));
+  }  
+
+  resposta(response: any): any {
+    return response || {};
+  }
+
   serviceError(response: Response | any) {
     let customError: string[] = [];
 

@@ -71,7 +71,7 @@ namespace ProJur.Cadastros.Aplication.Commands
 
         private bool NaoPodeSerMaior(DateTime data)
         {
-            return (data <= DateTime.Today) ? true : false;
+            return (data.Date <= DateTime.Today) ? true : false;
         }
     }
 }
