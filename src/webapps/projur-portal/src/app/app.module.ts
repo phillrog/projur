@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HomeModule } from './page/home/home.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,14 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     AppRoutingModule,    
     HttpClientModule,
-    HomeModule
+    HomeModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    useClass: HashLocationStrategy,
+
   }],
   bootstrap: [AppComponent]
 })
