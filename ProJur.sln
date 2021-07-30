@@ -11,19 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{94D4F9DF-069
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cadastros", "Cadastros", "{401E407F-F130-4F3C-9227-C53A649940A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProJur.Core", "src\services\ProJur.Core\ProJur.Core.csproj", "{BD9E8C61-B64E-46A8-976D-43B446EE91FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProJur.Core", "src\services\ProJur.Core\ProJur.Core.csproj", "{BD9E8C61-B64E-46A8-976D-43B446EE91FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProJur.Cadastros.Domain", "src\services\ProJur.Cadastros.Domain\ProJur.Cadastros.Domain.csproj", "{2A372269-B94C-414D-9B22-942BB7572A8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProJur.Cadastros.Domain", "src\services\ProJur.Cadastros.Domain\ProJur.Cadastros.Domain.csproj", "{2A372269-B94C-414D-9B22-942BB7572A8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProJur.Cadastros.Infra", "src\services\ProJur.Cadastros.Infra\ProJur.Cadastros.Infra.csproj", "{C43070CE-39DC-4FD9-B9C1-3F6A74E82614}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProJur.Cadastros.Infra", "src\services\ProJur.Cadastros.Infra\ProJur.Cadastros.Infra.csproj", "{C43070CE-39DC-4FD9-B9C1-3F6A74E82614}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProJur.Cadastros.API", "src\services\ProJur.Cadastros.API\ProJur.Cadastros.API.csproj", "{0AD24819-2CA7-46B6-BB35-DB4F4DC29694}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProJur.Cadastros.API", "src\services\ProJur.Cadastros.API\ProJur.Cadastros.API.csproj", "{0AD24819-2CA7-46B6-BB35-DB4F4DC29694}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProJur.Cadastros.Domain.Test", "tests\ProJur.Cadastros.Domain.Test\ProJur.Cadastros.Domain.Test.csproj", "{E8E87B4E-14EB-4084-BD97-39B5909AA626}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProJur.Cadastros.Domain.Test", "tests\ProJur.Cadastros.Domain.Test\ProJur.Cadastros.Domain.Test.csproj", "{E8E87B4E-14EB-4084-BD97-39B5909AA626}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D40E42FD-78E1-4DE1-B020-8AF78224CBE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProJur.Cadastros.Aplication", "src\services\ProJur.Cadastros.Aplication\ProJur.Cadastros.Aplication.csproj", "{912CC8B3-78FF-4D3D-BFAB-2A12AEC737E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProJur.Cadastros.Aplication", "src\services\ProJur.Cadastros.Aplication\ProJur.Cadastros.Aplication.csproj", "{912CC8B3-78FF-4D3D-BFAB-2A12AEC737E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
