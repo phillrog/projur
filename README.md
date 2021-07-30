@@ -51,4 +51,12 @@ Portal feito em angular ~11.0.3
 
 Utilização de componentes material ui
 
+### Executar
+
+ >``` npm install ``` 
+
+Obs: Para o portal efetuar o crud é necessário que a api esteja rodando também.
+
 ### Resultado
+
+![inicio](doc/v2.gif)
