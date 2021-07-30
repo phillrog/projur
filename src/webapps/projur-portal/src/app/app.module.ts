@@ -6,7 +6,6 @@ import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { ToggleDirective } from './dashboard/sidebar/toggle.directive';
 import { HomeComponent } from './page/home/home.component';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,13 +18,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HomeModule } from './page/home/home.module';
+import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     ToggleDirective,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatNativeDateModule,
     MatRadioModule,
     MatTooltipModule,
-    MatRippleModule
+    MatRippleModule,
+    HttpClientModule,
+    HomeModule
   ],
   providers: [{
     provide: LocationStrategy,
