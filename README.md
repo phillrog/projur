@@ -25,6 +25,7 @@ Foi implementado conceitos DDD, SOLID, Clean Code, POO e o padrão arquitetural 
 
 ### Resultado
 
+![inicio](doc/v1.gif)
 
 ### Executar
 Antes de rodar o back e o front, execute o migrations para criar a estrtutura do banco de dados
