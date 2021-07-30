@@ -1,71 +1,79 @@
 <div class="container-fluid">
-            <mat-card class="mb-4">
-                <mat-card-header>
-                    <mat-card-title>Lista de Usuários </mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <hr />
                     
-              
+    <p>
+        <a class="btn btn-info" [routerLink]="['/home/novo']">Novo Cadastro</a>
+    </p>
 
-<mat-table [dataSource]="dataSource">
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="nome">
-      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
-    </ng-container>
+    <mat-card class="mb-4">
+        <mat-card-header>
+            <mat-card-title>Lista de Usuários </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <hr />
+                            
+                    
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="sobreNome">
-      <mat-header-cell *matHeaderCellDef> Sobrenome </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.sobreNome}} </mat-cell>
-    </ng-container>
+        <mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef [style.display]="'none'"> Id </mat-header-cell>
+            <mat-cell *matCellDef="let element" [style.display]="'none'"> {{element.id}} </mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="nome">
+            <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="sobreNome">
+            <mat-header-cell *matHeaderCellDef> Sobrenome </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.sobreNome}} </mat-cell>
+            </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+            </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="dataNascimento">
-      <mat-header-cell *matHeaderCellDef> Data Nascimento </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.dataNascimento | date : 'dd/MM/yyyy'}} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="dataNascimento">
+            <mat-header-cell *matHeaderCellDef> Data Nascimento </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.dataNascimento | date : 'dd/MM/yyyy'}} </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="escolaridadeDesc">
-      <mat-header-cell *matHeaderCellDef> Escolaridade </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.escolaridadeDesc}} </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="escolaridadeDesc">
+            <mat-header-cell *matHeaderCellDef> Escolaridade </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.escolaridadeDesc}} </mat-cell>
+            </ng-container>
 
-     <ng-container matColumnDef="editar">
-            <mat-header-cell *matHeaderCellDef></mat-header-cell>
-            <mat-cell *matCellDef="let element">
-              
-                <button mat-button mat-mini-fab title="Editar" 
-               > <mat-icon class="icon">edit</mat-icon></button>
-              
-        </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="deletar">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-        
-            <button mat-button mat-mini-fab color="warn" title="Deletar" > 
-            <mat-icon class="icon">delete</mat-icon></button>
-        
-        </mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="editar">
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                    
+                        <button mat-button mat-mini-fab title="Editar" 
+                        [routerLink]="['/home/editar', element.id]"
+                    > <mat-icon class="icon">edit</mat-icon></button>
+                    
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="deletar">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                
+                    <button mat-button mat-mini-fab color="warn" title="Deletar"
+                    > 
+                    <mat-icon class="icon">delete</mat-icon></button>
+                
+                </mat-cell>
+            </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons >
-  </mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                        showFirstLastButtons >
+        </mat-paginator>
 
-  </mat-card-content>            
-            </mat-card>
-        </div>
+        </mat-card-content>            
+    </mat-card>
+</div>

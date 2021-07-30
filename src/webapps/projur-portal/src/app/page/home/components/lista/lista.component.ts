@@ -14,7 +14,7 @@ export class ListaComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-  displayedColumns: string[] = ['nome', 'sobreNome', 'email', 'dataNascimento', 'escolaridadeDesc', 'editar', 'deletar'];
+  displayedColumns: string[] = ['id', 'nome', 'sobreNome', 'email', 'dataNascimento', 'escolaridadeDesc', 'editar', 'deletar'];
   dataSource = new MatTableDataSource<Usuario>([]);
 
   public usuarios: Usuario[] = [];
