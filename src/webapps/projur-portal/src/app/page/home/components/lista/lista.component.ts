@@ -4,6 +4,7 @@ import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/usuario.service';
 import {MatPaginator} from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-lista',
@@ -14,6 +15,8 @@ export class ListaComponent implements OnInit {
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+  @ViewChild(MatSort) 
+  sort!: MatSort;
 
   displayedColumns: string[] = ['id', 'nome', 'sobreNome', 'email', 'dataNascimento', 'escolaridadeDesc', 'editar', 'deletar'];
   dataSource = new MatTableDataSource<Usuario>([]);
@@ -31,6 +34,7 @@ export class ListaComponent implements OnInit {
           this.usuarios = usuarios
           this.dataSource = new MatTableDataSource<Usuario>(this.usuarios);
           this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         },
         error => this.errorMessage);
   }

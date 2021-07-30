@@ -14,34 +14,34 @@
                             
                     
 
-        <mat-table [dataSource]="dataSource">
+        <mat-table [dataSource]="dataSource" matSort >
             <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef [style.display]="'none'"> Id </mat-header-cell>
             <mat-cell *matCellDef="let element" [style.display]="'none'"> {{element.id}} </mat-cell>
             </ng-container>
             
             <ng-container matColumnDef="nome">
-            <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
             </ng-container>
             
             <ng-container matColumnDef="sobreNome">
-            <mat-header-cell *matHeaderCellDef> Sobrenome </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Sobrenome </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.sobreNome}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="email">
-            <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef  mat-sort-header> E-mail </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="dataNascimento">
-            <mat-header-cell *matHeaderCellDef> Data Nascimento </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef  mat-sort-header> Data Nascimento </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.dataNascimento | date : 'dd/MM/yyyy'}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="escolaridadeDesc">
-            <mat-header-cell *matHeaderCellDef> Escolaridade </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef  mat-sort-header> Escolaridade </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.escolaridadeDesc}} </mat-cell>
             </ng-container>
 
