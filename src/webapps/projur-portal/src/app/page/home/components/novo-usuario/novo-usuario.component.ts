@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from '../../models/usuario.model';
@@ -11,6 +11,7 @@ import { UsuarioService } from '../../services/usuario.service';
   styleUrls: ['./novo-usuario.component.scss']
 })
 export class NovoUsuarioComponent implements OnInit {
+  submitted = false;
 
   escolaridade = [
     { id: '0', descricao: 'Infantil'},
@@ -34,10 +35,10 @@ export class NovoUsuarioComponent implements OnInit {
 
   reactiveForm() {
     this.form = this.fb.group({
-      nome: [],
-      sobrenome: [],
-      email: [],
-      dataNascimento: [],      
+      nome: ['', Validators.required],
+      sobrenome: ['', Validators.required],
+      email: ['', Validators.required],
+      dataNascimento: ['', Validators.required],      
       escolaridade: []
     })
   }
@@ -47,6 +48,9 @@ export class NovoUsuarioComponent implements OnInit {
   }
 
   submit() {
+    this.submitted = true;
+    if (!this.form.valid) return;
+    
     let usuario: any = {
       escolaridadeDesc: '',
       nome: this.form.value.nome,

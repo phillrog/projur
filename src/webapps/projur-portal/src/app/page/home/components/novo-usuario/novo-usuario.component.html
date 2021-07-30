@@ -16,11 +16,19 @@
                     <div class="col-sm-6">
                         <mat-form-field class="example-full-width">
                             <input matInput placeholder="Nome" formControlName="nome">
+                            <span class="text-danger"
+                                *ngIf="(form.controls.nome.touched || submitted) && form.controls.nome.errors?.required">
+                               * Campo é obrigatório
+                            </span>
                         </mat-form-field>
                     </div>
                     <div class="col-sm-6">
                         <mat-form-field class="example-full-width">
                             <input matInput placeholder="E-mail" formControlName="email">
+                            <span class="text-danger"
+                                *ngIf="(form.controls.nome.touched || submitted) && form.controls.nome.errors?.required">
+                               * Campo é obrigatório
+                            </span>
                         </mat-form-field>
                     </div>
                 </div>
@@ -29,6 +37,10 @@
                     <div class="col-sm-6">
                         <mat-form-field class="example-full-width">
                             <input matInput placeholder="Sobrenome" formControlName="sobrenome">
+                            <span class="text-danger"
+                                *ngIf="(form.controls.nome.touched || submitted) && form.controls.nome.errors?.required">
+                                * Campo é obrigatório
+                            </span>
                         </mat-form-field>
                     </div>
                     <div class="col-sm-6">
@@ -36,6 +48,10 @@
                             <input matInput readonly [matDatepicker]="picker" placeholder="Data de nascimento" formControlName="dataNascimento" >
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
+                            <span class="text-danger"
+                                *ngIf="(form.controls.nome.touched || submitted) && form.controls.nome.errors?.required">
+                                * Campo é obrigatório
+                            </span>
                         </mat-form-field>
                     </div>
                 </div>

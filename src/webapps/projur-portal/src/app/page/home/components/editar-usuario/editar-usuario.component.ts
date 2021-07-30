@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from '../../services/usuario.service';
@@ -38,10 +38,10 @@ export class EditarUsuarioComponent implements OnInit {
         this.usuarioService.obterPorId(this.id).subscribe(response =>{
           this.form = this.fb.group({
             id:  new FormControl({ value: response.id, disabled: true }),
-            nome: [response.nome],
-            sobrenome: [response.sobreNome],
-            email: [response.email],
-            dataNascimento: [response.dataNascimento],            
+            nome: [response.nome, Validators.required],
+            sobrenome: [response.sobreNome, Validators.required],
+            email: [response.email, Validators.required],
+            dataNascimento: [response.dataNascimento, Validators.required],            
             escolaridade: [this.escolaridade[response.escolaridade]]      
           });
         })              
@@ -65,6 +65,8 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
   submit() {
+    if (!this.form.valid) return;
+    
     let usuario: any = {
       id: this.form.controls.id.value,
       escolaridadeDesc: '',
