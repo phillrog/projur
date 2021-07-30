@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/usuario.service';
 
@@ -22,11 +23,13 @@ export class NovoUsuarioComponent implements OnInit {
 
   constructor(public fb: FormBuilder, 
     private usuarioService: UsuarioService,
-    private router: Router) { 
+    private router: Router,
+    private toastr: ToastrService) { 
     this.reactiveForm();
   }
 
   ngOnInit(): void {
+    
   }
 
   reactiveForm() {
@@ -55,9 +58,10 @@ export class NovoUsuarioComponent implements OnInit {
 
     this.usuarioService.novoUsuario(usuario)
         .subscribe(sucesso => {
-           console.log(sucesso)
+           this.toastr.success('Usuário cadastrado com sucesso', 'Atenção');
           },
     falha => {
+      this.toastr.error(falha.Mensagens.join('/r/n'), 'Atenção');
     });
 
     this.router.navigate(["/"]);

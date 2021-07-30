@@ -8,6 +8,7 @@ import { NovoUsuarioComponent } from './components/novo-usuario/novo-usuario.com
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -21,7 +22,12 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MaterialModule,
     HomeRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    })
   ],
   exports: [
     ListaComponent

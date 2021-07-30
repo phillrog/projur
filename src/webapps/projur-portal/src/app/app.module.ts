@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,11 +28,15 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     HomeModule,
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    })
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy,
-
+    useClass: HashLocationStrategy,    
   }],
   bootstrap: [AppComponent]
 })

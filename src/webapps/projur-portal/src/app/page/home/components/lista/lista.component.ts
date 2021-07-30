@@ -5,6 +5,7 @@ import { UsuarioService } from '../../services/usuario.service';
 import {MatPaginator} from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-lista',
@@ -25,7 +26,7 @@ export class ListaComponent implements OnInit {
   errorMessage: string = '';
 
   constructor(private usuarioService: UsuarioService,
-    private router: Router,) { }
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.usuarioService.obterTodos()
@@ -42,7 +43,7 @@ export class ListaComponent implements OnInit {
   removerUsuario(usuario: Usuario) {
     this.usuarioService.removerUsuario(usuario.id).subscribe(
       sucesso => {
-
+        this.toastr.success('Usuário deletado com sucesso', 'Atenção');
       },
       falha => {}
     )

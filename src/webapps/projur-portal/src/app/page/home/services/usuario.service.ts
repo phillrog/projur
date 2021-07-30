@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { catchError, map } from "rxjs/operators";
 import { Usuario } from '../models/usuario.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +54,7 @@ export class UsuarioService {
 
   serviceError(response: Response | any) {
     let customError: string[] = [];
-
+    
     if (response instanceof HttpErrorResponse) {
 
         if (response.statusText === "Unknown Error") {
@@ -61,8 +62,10 @@ export class UsuarioService {
             response.error.errors = customError;
         }
     }
-
+     
     console.error(response);
-    return throwError(response);
+    return new Observable<any>(r => {
+      r.error(response.error.errors);      
+    });
   }
 }

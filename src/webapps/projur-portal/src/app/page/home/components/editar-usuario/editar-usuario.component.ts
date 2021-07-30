@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
@@ -25,7 +26,8 @@ export class EditarUsuarioComponent implements OnInit {
   constructor(public fb: FormBuilder, 
     private usuarioService: UsuarioService,
     private router: Router,
-    private activeRoute: ActivatedRoute) {
+    private activeRoute: ActivatedRoute,
+    private toastr: ToastrService) {
       this.reactiveForm();     
   }
 
@@ -75,7 +77,7 @@ export class EditarUsuarioComponent implements OnInit {
 
     this.usuarioService.alterarUsuario(usuario)
         .subscribe(sucesso => {
-           console.log(sucesso)
+            this.toastr.success('Usuário alterado com sucesso', 'Atenção');
           },
           falha => {});
 

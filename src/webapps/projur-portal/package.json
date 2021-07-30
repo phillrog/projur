@@ -28,6 +28,7 @@
     "@ngx-loading-bar/router": "^5.1.2",
     "font-awesome": "^4.7.0",
     "material-icons": "^0.5.1",
+    "ngx-toastr": "^14.0.0",
     "roboto-fontface": "^0.10.0",
     "rxjs": "~6.6.0",
     "simple-line-icons": "^2.5.5",
